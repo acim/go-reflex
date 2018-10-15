@@ -9,7 +9,7 @@
 
 * uses Go modules (Go version >=1.11)
 * uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go files changes and recompile/restart your server application
-* supports optional race detector and strip debug symbols from binary file
+* optionally compiles binary with data race detector
 
 ## Requirements
 
@@ -42,5 +42,4 @@ services:
 
 ## Optional environment variables
 
-* STRIP_BINARY=1 - used to strip out debug symbols from binary
 * RACE_DETECTOR=1 - used to turn on data race detector in the compiled binary
