@@ -19,8 +19,7 @@ services:
   myservice:
     image: acim/go-reflex
     environment:
-      - CGO_ENABLED=1
-      - PORT=3000
+      - RACE_DETECTOR=1
     volumes:
       - .:/app
     ports:
@@ -29,4 +28,7 @@ services:
 
 Your application will be exposed on port 3000 of your localhost and will be recompiled and restarted on each modification of *.go files.
 
-CGO_ENABLED=1 is required for -race flag that is used to compile go code in order to check for data race in your development environment.
+Supported environment variables:
+
+* STRIP_BINARY=1 (optional) is used to strip out debug symbols from binary
+* RACE_DETECTOR=1 (optionsl) is used to turn on data race detector in the compiled binary
