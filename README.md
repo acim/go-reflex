@@ -1,9 +1,9 @@
 # Docker image of auto-recompiling Golang server
 
-![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
-![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)
-![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)
-![Docker Build Status](https://img.shields.io/docker/build/jrottenberg/ffmpeg.svg)
+![GitHub](https://img.shields.io/github/license/acim/go-reflex.svg)
+![GitHub tag](https://img.shields.io/github/tag/acim/go-reflex.svg)
+[![Docker Automated build](https://img.shields.io/docker/build/acim/go-reflex.svg)](https://hub.docker.com/r/acim/go-reflex/)
+[![Docker Build Status](https://img.shields.io/docker/build/acim/go-reflex.svg)](https://hub.docker.com/r/acim/go-reflex/)
 
 ## Support on Beerpay
 
