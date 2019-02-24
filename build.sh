@@ -9,4 +9,4 @@ fi
 
 cd /app
 go build "${args[@]}"
-/go/bin/app
+/go/bin/app $RUN_ARGS

@@ -34,6 +34,7 @@ services:
     image: acim/go-reflex
     environment:
       - RACE_DETECTOR=1
+      - RUN_ARGS=server
     volumes:
       - .:/app
     ports:
@@ -43,3 +44,4 @@ services:
 ## Optional environment variables
 
 * RACE_DETECTOR=1 - used to turn on data race detector in the compiled binary
+* RUN_ARGS - used to add commands and flags in the call of your binary
