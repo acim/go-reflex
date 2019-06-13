@@ -11,6 +11,10 @@
 * uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go files changes and recompile/restart your server application
 * optionally compiles binary with data race detector
 
+## Feature requests
+
+* please open a new issue
+
 ## Requirements
 
 * your server application is expected to run on port 3000 inside the container, but you can actually use any port
