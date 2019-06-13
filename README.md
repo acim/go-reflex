@@ -13,7 +13,7 @@
 
 ## Feature requests
 
-* please open a new issue
+* please open a [new issue](https://github.com/acim/go-reflex/issues/new)
 
 ## Requirements
 
