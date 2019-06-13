@@ -1,6 +1,6 @@
-FROM golang:1
+FROM golang:1.12.6
 
-RUN go get github.com/cespare/reflex
+RUN go get -u github.com/cespare/reflex
 
 COPY reflex.conf /usr/local/etc/
 COPY build.sh /usr/local/bin/
