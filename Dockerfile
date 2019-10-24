@@ -1,5 +1,5 @@
 ARG GO_VERSION
-FROM golang:${GO_VERSION}
+FROM ${GO_VERSION}
 
 LABEL org.label-schema.description="Docker image for auto-recompiling and auto-restarting Golang server" \
     org.label-schema.name="acim/go-reflex" \

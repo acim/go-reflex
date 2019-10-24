@@ -9,7 +9,7 @@ steps:
   settings:
     repo: acim/go-reflex
     environment:
-      GO_VERSION: 1.13.3-buster
+      GO_VERSION: golang:1.13.3-buster
     username:
       from_secret: docker_username
     password:
@@ -17,6 +17,6 @@ steps:
     build_args_from_env:
     - GO_VERSION
     tags:
-    - ${GO_VERSION}
+    - 1.13.3
     - latest
     - stable
