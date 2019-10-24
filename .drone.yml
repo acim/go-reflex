@@ -1,0 +1,13 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: test
+  image: busybox
+  settings:
+    my_crazy_setting: 123
+  commands:
+  - ls -la
+  - env
