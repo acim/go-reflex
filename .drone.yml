@@ -4,10 +4,17 @@ type: docker
 name: default
 
 steps:
-- name: test
-  image: busybox
+- name: docker  
+  image: plugins/docker
   settings:
-    my_crazy_setting: 123
-  commands:
-  - ls -la
-  - env
+    repo: acim/go-reflex
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    build_args:
+    - GO_VERSION=1.13.3-buster
+    tags:
+    - 1.13.3-buster
+    - latest
+    - stable
