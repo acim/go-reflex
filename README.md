@@ -1,9 +1,9 @@
 # Docker image for auto-recompiling and auto-restarting Golang server
 
-![GitHub](https://img.shields.io/github/license/acim/go-reflex.svg)
+[![GitHub](https://img.shields.io/github/license/acim/go-reflex.svg)](LICENSE)
 [![Build Status](https://drone.ablab.de/api/badges/acim/drone-kaniko/status.svg)](https://drone.ablab.de/acim/drone-kaniko)
-![Docker Pulls](https://img.shields.io/docker/pulls/acim/go-reflex)
-![Docker Stars](https://img.shields.io/docker/stars/acim/go-reflex)
+[![Docker Pulls](https://img.shields.io/docker/pulls/acim/go-reflex)](https://hub.docker.com/r/acim/go-reflex)
+[![Docker Stars](https://img.shields.io/docker/stars/acim/go-reflex)](https://hub.docker.com/r/acim/go-reflex)
 [![Beerpay](https://img.shields.io/beerpay/acim/go-reflex)](https://beerpay.io/acim/go-reflex)
 
 ## Features
