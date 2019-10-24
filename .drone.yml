@@ -8,14 +8,10 @@ steps:
   image: plugins/docker
   settings:
     repo: acim/go-reflex
-    environment:
-      GO_VERSION: golang:1.13.3-buster
     username:
       from_secret: docker_username
     password:
       from_secret: docker_password
-    build_args_from_env:
-    - GO_VERSION
     tags:
     - 1.13.3
     - latest

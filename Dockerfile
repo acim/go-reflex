@@ -1,5 +1,4 @@
-ARG GO_VERSION
-FROM ${GO_VERSION}
+FROM golang:1.13.3-buster
 
 LABEL org.label-schema.description="Docker image for auto-recompiling and auto-restarting Golang server" \
     org.label-schema.name="acim/go-reflex" \
