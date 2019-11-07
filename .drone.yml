@@ -5,7 +5,7 @@ name: default
 
 steps:
 - name: docker  
-  image: plugins/docker
+  image: ablabl/drone-kaniko
   settings:
     repo: acim/go-reflex
     username:
@@ -13,6 +13,6 @@ steps:
     password:
       from_secret: docker_password
     tags:
-    - 1.13.3
+    - 1.13.4-0
     - latest
     - stable

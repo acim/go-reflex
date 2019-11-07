@@ -31,7 +31,7 @@ version: "3.7"
 
 services:
   myservice:
-    image: acim/go-reflex:1.13.3
+    image: acim/go-reflex
     environment:
       - RACE_DETECTOR=1
       - RUN_ARGS=server

@@ -1,9 +1,9 @@
-FROM golang:1.13.3-buster
+FROM golang:1.13.4-buster
 
-LABEL org.label-schema.description="Docker image for auto-recompiling and auto-restarting Golang server" \
+LABEL org.label-schema.description="Docker image for autorecompiling and autorestarting Golang server" \
     org.label-schema.name="acim/go-reflex" \
     org.label-schema.url="https://github.com/acim/go-reflex/blob/master/README.md" \
-    org.label-schema.vendor="ablab.de"
+    org.label-schema.vendor="ablab.io"
 
 RUN go get -u github.com/cespare/reflex
 
