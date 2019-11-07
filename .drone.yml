@@ -4,8 +4,8 @@ type: docker
 name: default
 
 steps:
-- name: docker  
-  image: ablabl/drone-kaniko
+- name: build  
+  image: ablab/drone-kaniko
   settings:
     repo: acim/go-reflex
     username:
@@ -13,6 +13,6 @@ steps:
     password:
       from_secret: docker_password
     tags:
-    - 1.13.4-0
+    - 1.13.4-1
     - latest
     - stable
