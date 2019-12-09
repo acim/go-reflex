@@ -1,4 +1,4 @@
-FROM golang:1.13.4-buster
+FROM golang:1.13.5-buster
 
 LABEL org.label-schema.description="Docker image for autorecompiling and autorestarting Golang server" \
     org.label-schema.name="acim/go-reflex" \
