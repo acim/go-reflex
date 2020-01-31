@@ -13,6 +13,6 @@ steps:
     password:
       from_secret: docker_password
     tags:
-    - 1.13.6-0
+    - 1.13.7-r0
     - latest
     - stable
