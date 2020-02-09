@@ -13,34 +13,10 @@ on:
   # Run tests for any PRs.
   pull_request:
 
-env:
-  # TODO: Change variable to your image's name.
-  IMAGE_NAME: image
-
 jobs:
-  # Run tests.
-  # See also https://docs.docker.com/docker-hub/builds/automated-testing/
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Run tests
-        run: |
-          if [ -f docker-compose.test.yml ]; then
-            docker-compose --file docker-compose.test.yml build
-            docker-compose --file docker-compose.test.yml run sut
-          else
-            docker build . --file Dockerfile
-          fi
-
   # Push image to GitHub Package Registry.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    # Ensure test job passes before pushing image.
-    needs: test
-
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
@@ -51,11 +27,11 @@ jobs:
         run: docker build . --file Dockerfile --tag image
 
       - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ github.actor }} --password-stdin
 
       - name: Push image
         run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=acim/go-reflex
 
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
