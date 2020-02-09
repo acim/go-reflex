@@ -34,7 +34,10 @@ jobs:
           # String "-rX" suffix from tag name
           VERSION=$(echo $VERSION | sed -e 's/-r[0-9]*$//')
 
-          docker build . --file Dockerfile --build-arg tag="${VERSION}-buster" --tag image
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "master" ] && TAG="buster" || TAG="${VERSION}-buster" 
+
+          docker build . --file Dockerfile --build-arg tag="${TAG}" --tag image
 
       - name: Log into registry
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ github.actor }} --password-stdin
