@@ -45,3 +45,10 @@ services:
 
 * RACE_DETECTOR=1 - used to turn on data race detector in the compiled binary
 * RUN_ARGS - used to add commands and flags in the call of your binary
+
+## Note for contributors - tagging reminder
+
+* `git tag -a v1.13.8-r0 "comment"`
+* `git push origin v1.13.8-r0`
+
+Part 1.13.8 from the example above will be used for Golang base image tag.
