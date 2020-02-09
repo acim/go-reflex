@@ -24,7 +24,17 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag image
+        run: |
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # String "-rX" suffix from tag name
+          VERSION=$(echo $VERSION | sed -e 's/-r[0-9]*$//')
+
+          docker build . --file Dockerfile --build-arg tag="${VERSION}-buster" --tag image
 
       - name: Log into registry
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ github.actor }} --password-stdin
