@@ -34,7 +34,7 @@ jobs:
           # String "-rX" suffix from tag name
           VERSION=$(echo $VERSION | sed -e 's/-r[0-9]*$//')
 
-          # Use Docker `latest` tag convention
+          # Add suffix buster
           [ "$VERSION" == "master" ] && TAG="buster" || TAG="${VERSION}-buster" 
 
           docker build . --file Dockerfile --build-arg tag="${TAG}" --tag image
