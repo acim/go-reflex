@@ -48,7 +48,7 @@ services:
 
 ## Note for contributors - tagging reminder
 
-* `git tag -a v1.13.8-r0 "comment"`
+* `git tag -a v1.13.8-r0 -m "comment"`
 * `git push origin v1.13.8-r0`
 
 Part 1.13.8 from the example above will be used for Golang base image tag.
