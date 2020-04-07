@@ -4,7 +4,6 @@
 ![Docker](https://github.com/acim/go-reflex/workflows/Docker/badge.svg)
 [![Docker Pulls](https://img.shields.io/docker/pulls/acim/go-reflex)](https://hub.docker.com/r/acim/go-reflex)
 [![Docker Stars](https://img.shields.io/docker/stars/acim/go-reflex)](https://hub.docker.com/r/acim/go-reflex)
-[![Beerpay](https://img.shields.io/beerpay/acim/go-reflex)](https://beerpay.io/acim/go-reflex)
 
 ## Features
 
