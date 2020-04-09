@@ -1,6 +1,7 @@
 # Docker image for auto-recompiling and auto-restarting Golang server
 
 [![GitHub](https://img.shields.io/github/license/acim/go-reflex)](LICENSE)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/acim/go-reflex/Docker)
 ![Docker](https://github.com/acim/go-reflex/workflows/Docker/badge.svg)
 [![Docker Pulls](https://img.shields.io/docker/pulls/acim/go-reflex)](https://hub.docker.com/r/acim/go-reflex)
 [![Docker Stars](https://img.shields.io/docker/stars/acim/go-reflex)](https://hub.docker.com/r/acim/go-reflex)
@@ -50,4 +51,4 @@ services:
 * `git tag -a v1.13.8-r0 -m "comment"`
 * `git push origin v1.13.8-r0`
 
-Part 1.13.8 from the example above will be used for Golang base image tag.
+Version segment "1.13.8" from the example above will be used for Golang base image tag.
