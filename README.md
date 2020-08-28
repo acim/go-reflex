@@ -24,7 +24,7 @@
 
 ## How to use with docker-compose
 
-Place docker-compose.yml in your project root and run 'docker-compose up --build'.
+Place docker-compose.yml in your project root and run `docker-compose up --build`.
 
 ### docker-compose.yml example
 
@@ -41,6 +41,8 @@ services:
     ports:
       - 3000:3000
 ```
+
+Note: Replace port number with correct port number of your application.
 
 ## How to use with kind (Kubernetes)
 
@@ -98,6 +100,14 @@ spec:
         path: /app
       name: app
 ```
+
+### Start port-forwarding
+
+```sh
+kubectl port-forward your-app-name 3000:3000
+```
+
+Note: Replace port number with correct port number of your application.
 
 ## Optional environment variables
 
