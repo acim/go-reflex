@@ -1,4 +1,4 @@
-# Docker image for auto-recompiling and auto-restarting Golang server
+# Docker image for auto-recompiling and auto-restarting Golang server application
 
 [![GitHub](https://img.shields.io/github/license/acim/go-reflex)](LICENSE)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/acim/go-reflex/Docker)
@@ -9,9 +9,10 @@
 
 ## Features
 
+* works with [docker-compose](https://github.com/docker/compose) and [kind](https://github.com/kubernetes-sigs/kind)
 * uses Go modules (Go version >=1.11)
 * uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go files changes and recompile/restart your server application
-* optionally compiles binary with data race detector
+* optionally compiles with data race detector
 
 ## Feature requests
 
@@ -19,37 +20,93 @@
 
 ## Requirements
 
-* your server application is expected to run on port 3000 inside the container, but you can actually use any port
+* main package is expected to be in the root directory of your project
 
-## How to use
+## How to use with docker-compose
 
 Place docker-compose.yml in your project root and run 'docker-compose up --build'.
 
-## docker-compose.yml example
+### docker-compose.yml example
 
 ```yaml
 version: "3.7"
 
 services:
   myservice:
-    image: acim/go-reflex
+    image: acim/go-reflex:1.15.0-r0
     environment:
       - RACE_DETECTOR=1
-      - RUN_ARGS=server
     volumes:
       - .:/app
     ports:
       - 3000:3000
 ```
 
+## How to use with kind (Kubernetes)
+
+### Install kind
+
+```sh
+GO111MODULE="on" go get sigs.k8s.io/kind@v0.8.1
+```
+
+### Create local cluster
+
+```sh
+kind create cluster --config=config.yaml
+```
+
+### config.yaml example
+
+```yaml
+apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
+nodes:
+  - role: control-plane
+    extraMounts:
+      - hostPath: /path/to/your/project/root
+        containerPath: /app
+```
+
+### Deploy your application
+
+```sh
+kubectl apply -f deploy.yaml
+```
+
+### deploy.yaml example
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: your-app-name
+  namespace: default
+spec:
+  containers:
+    - image: acim/go-reflex:1.15.0-r0
+      name: your-app-name
+      env:
+      - name: RACE_DETECTOR
+        value: "1"
+      volumeMounts:
+        - mountPath: /app
+          name: app
+  restartPolicy: Never
+  volumes:
+    - hostPath:
+        path: /app
+      name: app
+```
+
 ## Optional environment variables
 
-* RACE_DETECTOR=1 - used to turn on data race detector in the compiled binary
+* RACE_DETECTOR=1 - used to turn on data race detector to the compiled binary
 * RUN_ARGS - used to add commands and flags in the call of your binary
 
 ## Note for contributors - tagging reminder
 
-* `git tag -a v1.13.8-r0 -m "comment"`
-* `git push origin v1.13.8-r0`
+* `git tag -a v1.15.0-r0 -m "comment"`
+* `git push origin v1.15.0-r0`
 
-Version segment "1.13.8" from the example above will be used for Golang base image tag.
+Version segment "1.15.0" from the example above will be used for Golang base image tag.
