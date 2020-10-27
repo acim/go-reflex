@@ -11,7 +11,7 @@
 
 * works with [docker-compose](https://github.com/docker/compose) and [kind](https://github.com/kubernetes-sigs/kind)
 * uses Go modules (Go version >=1.11)
-* uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go files changes and recompile/restart your server application
+* uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go and .html files changes and recompile/restart your server application
 * optionally compiles with data race detector
 
 ## Feature requests
@@ -33,7 +33,7 @@ version: "3.7"
 
 services:
   myservice:
-    image: acim/go-reflex:1.15.0-r0
+    image: acim/go-reflex
     environment:
       - RACE_DETECTOR=1
     volumes:
@@ -86,7 +86,7 @@ metadata:
   namespace: default
 spec:
   containers:
-    - image: acim/go-reflex:1.15.0-r0
+    - image: acim/go-reflex
       name: your-app-name
       env:
       - name: RACE_DETECTOR
