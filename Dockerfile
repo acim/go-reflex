@@ -1,11 +1,4 @@
-ARG tag
-FROM golang:${tag}
-
-LABEL org.label-schema.description="Docker image for autorecompiling and autorestarting Golang server" \
-    org.label-schema.name="acim/go-reflex" \
-    org.label-schema.schema-version="1.0" \
-    org.label-schema.url="https://github.com/acim/go-reflex/blob/master/README.md" \
-    org.label-schema.vendor="ectobit.com"
+FROM golang:1.15.6
 
 RUN go get -u github.com/cespare/reflex
 

@@ -113,10 +113,3 @@ Note: Replace port number with correct port number of your application.
 
 * RACE_DETECTOR=1 - used to turn on data race detector to the compiled binary
 * RUN_ARGS - used to add commands and flags in the call of your binary
-
-## Note for contributors - tagging reminder
-
-* `git tag -a v1.15.0-r0 -m "comment"`
-* `git push origin v1.15.0-r0`
-
-Version segment "1.15.0" from the example above will be used for Golang base image tag.
