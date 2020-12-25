@@ -1,4 +1,4 @@
-name: golang
+name: build
 
 on:
   push:
@@ -45,7 +45,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           labels: |
-            org.opencontainers.image.title=golang
+            org.opencontainers.image.title=go-reflex
             org.opencontainers.image.description='Docker image for autorecompiling and autorestarting Golang server'
             org.opencontainers.image.url=https://github.com/acim/go-reflex
             org.opencontainers.image.source=${{ github.event.repository.clone_url }}
