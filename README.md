@@ -9,18 +9,18 @@
 
 ## Features
 
-* works with [docker-compose](https://github.com/docker/compose) and [kind](https://github.com/kubernetes-sigs/kind)
-* uses Go modules (Go version >=1.11)
-* uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go and .html files changes and recompile/restart your server application
-* optionally compiles with data race detector
+- works with [docker-compose](https://github.com/docker/compose) and [kind](https://github.com/kubernetes-sigs/kind)
+- uses Go modules (Go version >=1.11)
+- uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go and .html files changes and recompile/restart your server application
+- optionally compiles with data race detector
 
 ## Feature requests
 
-* please open a [new issue](https://github.com/acim/go-reflex/issues/new)
+- please open a [new issue](https://github.com/acim/go-reflex/issues/new)
 
 ## Requirements
 
-* main package is expected to be in the root directory of your project
+- main package is expected to be in the root directory of your project
 
 ## How to use with docker-compose
 
@@ -29,7 +29,7 @@ Place docker-compose.yml in your project root and run `docker-compose up --build
 ### docker-compose.yml example
 
 ```yaml
-version: "3.7"
+version: '3.7'
 
 services:
   myservice:
@@ -89,8 +89,8 @@ spec:
     - image: acim/go-reflex
       name: your-app-name
       env:
-      - name: RACE_DETECTOR
-        value: "1"
+        - name: RACE_DETECTOR
+          value: '1'
       volumeMounts:
         - mountPath: /app
           name: app
@@ -111,5 +111,6 @@ Note: Replace port number with correct port number of your application.
 
 ## Optional environment variables
 
-* RACE_DETECTOR=1 - used to turn on data race detector to the compiled binary
-* RUN_ARGS - used to add commands and flags in the call of your binary
+- RACE_DETECTOR=1 - used to turn on data race detector to the compiled binary
+- RUN_ARGS - used to add commands and flags in the call of your binary
+- BUILD_ARGS - used to add flags to go build command (i.e. "./cmd/myapp/main.go")

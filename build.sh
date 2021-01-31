@@ -8,5 +8,5 @@ if [[ $RACE_DETECTOR -eq 1 ]]; then
 fi
 
 cd /app
-go build "${args[@]}"
-/go/bin/app $RUN_ARGS
+go build "${args[@]}" ${BUILD_ARGS}
+/go/bin/app ${RUN_ARGS}
