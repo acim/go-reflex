@@ -2,7 +2,7 @@
 
 args=(-o /go/bin/app)
 
-if [[ $RACE_DETECTOR -eq 1 ]]; then
+if [[ ${RACE_DETECTOR} -eq "1" ]]; then
 	CGO_ENABLED=1
     args+=(-race)
 fi
