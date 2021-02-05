@@ -10,7 +10,6 @@
 ## Features
 
 - works with [docker-compose](https://github.com/docker/compose) and [kind](https://github.com/kubernetes-sigs/kind)
-- uses Go modules (Go version >=1.11)
 - uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go and .html files changes and recompile/restart your server application
 - optionally compiles with data race detector
 
