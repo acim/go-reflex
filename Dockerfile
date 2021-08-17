@@ -1,4 +1,4 @@
-FROM golang:1.16.7
+FROM golang:1.17.0
 
 RUN go get -u github.com/cespare/reflex
 
