@@ -12,23 +12,20 @@
 - works with [docker-compose](https://github.com/docker/compose) and [kind](https://github.com/kubernetes-sigs/kind)
 - uses [cespare/reflex](https://github.com/cespare/reflex) to watch .go and .html files changes and recompile/restart your server application
 - optionally compiles with data race detector
+- supports amd64 and arm64 architectures
 
 ## Feature requests
 
 - please open a [new issue](https://github.com/acim/go-reflex/issues/new)
 
-## Requirements
-
-- main package is expected to be in the root directory of your project
-
 ## How to use with docker-compose
 
 Place docker-compose.yml in your project root and run `docker-compose up --build`.
 
-### docker-compose.yml example
+### docker-compose.yml example with main package in the root of the project
 
 ```yaml
-version: '3.7'
+version: '3.8'
 
 services:
   myservice:
@@ -43,12 +40,29 @@ services:
 
 Note: Replace port number with correct port number of your application.
 
+### docker-compose.yml example with main package not in the root of the project
+
+```yaml
+version: '3.8'
+
+services:
+  myservice:
+    image: acim/go-reflex
+    environment:
+      - RACE_DETECTOR=1
+      - BUILD_ARGS=./cmd/server/server.go
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+```
+
 ## How to use with kind (Kubernetes)
 
 ### Install kind
 
 ```sh
-GO111MODULE="on" go get sigs.k8s.io/kind@v0.8.1
+go install sigs.k8s.io/kind@latest
 ```
 
 ### Create local cluster
@@ -111,5 +125,5 @@ Note: Replace port number with correct port number of your application.
 ## Optional environment variables
 
 - RACE_DETECTOR=1 - used to turn on data race detector to the compiled binary
-- RUN_ARGS - used to add commands and flags in the call of your binary
+- RUN_ARGS - used to add subcommands and/or flags in the call of your binary (i.e. serve --verbose)
 - BUILD_ARGS - used to add flags to go build command (i.e. "./cmd/myapp/main.go")
