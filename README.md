@@ -3,7 +3,9 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/acim/go-reflex/Docker?logo=github)](https://github.com/acim/go-reflex/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/acim/go-reflex?logo=docker&label=pulls)](https://hub.docker.com/r/acim/go-reflex)
 [![Docker Stars](https://img.shields.io/docker/stars/acim/go-reflex?logo=docker&label=stars)](https://hub.docker.com/r/acim/go-reflex)
-[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/acim/go-reflex?logo=docker&label=semver)](https://hub.docker.com/r/acim/go-reflex/tags?page=1&ordering=last_updated)
+![Docker Architecture](https://img.shields.io/badge/arch-amd64-blue?logo=docker)
+![Docker Architecture](https://img.shields.io/badge/arch-arm64-blue?logo=docker)
+[![Docker Image Tag](https://img.shields.io/docker/v/acim/go-reflex?logo=docker&label=semver)](https://hub.docker.com/r/acim/go-reflex/tags?page=1&ordering=last_updated)
 
 ## Features
 
