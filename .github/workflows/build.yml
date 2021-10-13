@@ -13,7 +13,7 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2.3.4
       - name: Lint Dockerfile
-        uses: hadolint/hadolint-action@v1.5.0
+        uses: hadolint/hadolint-action@v1.6.0
         with:
           dockerfile: Dockerfile
       - name: Set up QEMU
@@ -28,14 +28,7 @@ jobs:
           echo "Status:    ${{ steps.buildx.outputs.status }}"
           echo "Flags:     ${{ steps.buildx.outputs.flags }}"
           echo "Platforms: ${{ steps.buildx.outputs.platforms }}"
-      - name: Set up cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-      - name: Login to Docker Hub
+      - name: Login to container registry
         uses: docker/login-action@v1.10.0
         with:
           username: ${{ github.actor }}
@@ -49,15 +42,15 @@ jobs:
           echo ::set-output name=version::${VERSION}
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-      - name: Build and push image to Docker Hub
+      - name: Build and push image to container registry
         uses: docker/build-push-action@v2.7.0
         with:
           platforms: linux/amd64,linux/arm64
           file: Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prep.outputs.tags }}
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           labels: |
             org.opencontainers.image.title=go-reflex
             org.opencontainers.image.description='Docker image for autorecompiling and autorestarting Golang server'
