@@ -10,5 +10,3 @@ WORKDIR /app
 VOLUME /go
 
 CMD ["reflex", "-d", "none", "-c", "/usr/local/etc/reflex.conf"]
-
-EXPOSE 3000

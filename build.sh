@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [ -n ${APT_INSTALL} ]; then
-    apt-get update && apt-get install -y "${APT_INSTALL}" && rm -rf /var/lib/apt/lists/*
+if [ -n "${APT_INSTALL}" ]; then
+    apt-get update && apt-get install -y "${APT_INSTALL}"
 fi
 
 args=(-o /go/bin/app)

@@ -57,6 +57,23 @@ services:
       - 3000:3000
 ```
 
+### docker-compose.yml example with installation of external dependencies
+
+```yaml
+version: '3.8'
+
+services:
+  myservice:
+    image: acim/go-reflex
+    environment:
+      - RACE_DETECTOR=1
+      - APT_INSTALL=libraw-dev
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+```
+
 ## How to use with kind (Kubernetes)
 
 ### Install kind
