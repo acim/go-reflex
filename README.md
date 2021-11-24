@@ -5,7 +5,7 @@
 [![Docker Stars](https://img.shields.io/docker/stars/acim/go-reflex?logo=docker&label=stars)](https://hub.docker.com/r/acim/go-reflex)
 ![Docker Architecture](https://img.shields.io/badge/arch-amd64-blue?logo=docker)
 ![Docker Architecture](https://img.shields.io/badge/arch-arm64-blue?logo=docker)
-[![Docker Image Tag](https://img.shields.io/docker/v/acim/go-reflex?logo=docker&label=semver)](https://hub.docker.com/r/acim/go-reflex/tags?page=1&ordering=last_updated)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/acim/go-reflex?logo=docker)
 
 ## Features
 
