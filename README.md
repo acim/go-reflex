@@ -127,3 +127,4 @@ Note: Replace port number with correct port number of your application.
 - RACE_DETECTOR=1 - used to turn on data race detector to the compiled binary
 - RUN_ARGS - used to add subcommands and/or flags in the call of your binary (i.e. serve --verbose)
 - BUILD_ARGS - used to add flags to go build command (i.e. "./cmd/myapp/main.go")
+- APT_INSTALL - used to install additional packages (experimental and not efficient)
