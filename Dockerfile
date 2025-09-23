@@ -1,6 +1,6 @@
 FROM golang:1.25.1
 
-RUN go install github.com/cespare/reflex@latest
+RUN go install github.com/cespare/reflex@v0.3.1
 
 COPY reflex.conf /usr/local/etc/
 COPY build.sh /usr/local/bin/
