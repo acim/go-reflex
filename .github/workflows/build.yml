@@ -43,7 +43,7 @@ jobs:
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
       - name: Build and push image to container registry
-        uses: docker/build-push-action@v6.18.0
+        uses: docker/build-push-action@v6.19.1
         with:
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
