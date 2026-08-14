@@ -13,3 +13,12 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    # Go's Docker tags spell release candidates as, for example,
+    # 1.27rc2-alpine. Dependabot currently treats these as newer stable tags.
+    # Keep patch automation, but handle stable Go minor/major upgrades manually
+    # so prereleases never enter CI.
+    ignore:
+      - dependency-name: golang
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-major
