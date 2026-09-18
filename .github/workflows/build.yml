@@ -53,7 +53,7 @@ jobs:
             echo "created=$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           } >> "$GITHUB_OUTPUT"
       - name: Build and push image to container registry
-        uses: docker/build-push-action@v7.3.0
+        uses: docker/build-push-action@v7.4.0
         with:
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
